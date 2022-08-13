@@ -9,6 +9,7 @@ import { MyWishlistComponent } from './views/my-wishlist/my-wishlist.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BooksContainerComponent } from './components/books-container/books-container.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MyWishlistComponent,
     HeaderComponent,
     BookComponent,
-    FooterComponent
+    FooterComponent,
+    BooksContainerComponent
   ],
   imports: [
     BrowserModule,
