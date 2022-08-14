@@ -1,11 +1,12 @@
 <div class="row border-bottom">
     <div class="col-4 p-5">
         <div class="box-book-shadow">
-            <img src="../../../assets/IMG_1747.PNG" class="book-img">
+            <img class="book-img">
         </div>
     </div>
     <div class="col-8 text-align-right">
-        <p>Los Misterios del Náhuatl Contemporáneo</p>
+        <p *ngIf="book.volumeInfo.title.length <= 30" title="{{book.volumeInfo.title}}">{{book.volumeInfo.title.substring(0, 30)}}</p>
+        <p *ngIf="book.volumeInfo.title.length > 30" title="{{book.volumeInfo.title}}">{{book.volumeInfo.title.substring(0, 30)}}...</p>
         <p>Rating 2*</p>
         <p>Miguel Ruiz</p>
         <p>Salamanca</p>

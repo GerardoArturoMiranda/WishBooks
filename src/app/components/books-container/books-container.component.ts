@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/models/Book';
+import { LandingPageService } from 'src/app/views/landing-page/landing-page.service';
 
 @Component({
   selector: 'app-books-container',
@@ -6,21 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./books-container.component.sass']
 })
 export class BooksContainerComponent implements OnInit {
-  books?: number[]
-  constructor() { }
+  protected books?: Book[]
+  constructor(protected landingPageService: LandingPageService) { }
 
   ngOnInit(): void {
+    this.instantiateVariables()
+    this.landingPageService.fetchBooks().subscribe((books)=> {
+      this.books =  books
+      console.log(this.books)
+    })
+  }
+  private instantiateVariables(){
     this.books = []
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
-    this.books.push(1)
+  } 
 
+  loadBooks(){
   }
 
 

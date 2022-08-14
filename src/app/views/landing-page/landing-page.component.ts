@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { Book } from 'src/app/models/Book';
+import { LandingPageService } from './landing-page.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -10,6 +12,13 @@ export class LandingPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+  private instantiateVariables(){
+ 
+  } 
+
+  loadBooks(){
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnInit } from '@angular/core';
+import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { Book } from 'src/app/models/Book';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-book',
@@ -8,13 +9,23 @@ import Swal from 'sweetalert2';
   styleUrls: ['./book.component.sass']
 })
 export class BookComponent implements OnInit {
-  faPlus = faPlus
-  faInfo = faInfo
-  constructor() { }
+  @Input() book!: Book;
+  faPlus!: IconDefinition 
+  faInfo!: IconDefinition
 
-  ngOnInit(): void {
+  constructor() {
+    this.instantiateVariables()
   }
 
+  ngOnInit(): void {
+    console.info(this.book)
+  }
+
+  instantiateVariables(){
+    this.book = new Book()
+    this.faPlus = faPlus 
+    this.faInfo =  faInfo
+  }
   addToWishList(){
     Swal.fire({
       icon: "success",
