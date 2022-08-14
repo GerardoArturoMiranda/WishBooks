@@ -1,9 +1,12 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Book } from 'src/app/models/Book';
 import Swal from 'sweetalert2';
+import { ModalService } from '../modal/modal.service';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -15,7 +18,7 @@ export class BookComponent implements OnInit {
   faInfo!: IconDefinition
   faStar!: IconDefinition
 
-  constructor() {
+  constructor(private router: Router, private modal: ModalService) {
     this.instantiateVariables()
   }
 
@@ -40,5 +43,10 @@ export class BookComponent implements OnInit {
       reverseButtons: true,
       focusConfirm:false
     })
+  }
+
+  moreInfo(){
+    this.modal.openModal()
+    this.router.navigateByUrl("/"+this.book.id)
   }
 }

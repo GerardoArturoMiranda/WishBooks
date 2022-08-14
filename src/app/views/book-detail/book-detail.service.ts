@@ -8,37 +8,34 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
-export class LandingPageService {
-  private _books?: Book[]
+export class BookDetailService {
+  private _book!: Book
   private _apiUrl?: string
-  private _apiKey?: string
 
   constructor( private http : HttpClient) {
     this.instantiateVariables()
   }
 
   private instantiateVariables(){
-    this._books = []
+    this._book = new Book
     this._apiUrl = environment.apiUrl; 
-    this._apiKey = environment.googleApiKey
   }
 
-  public getBooks() : Book[]{
-    return [...this._books!]
+  public getBook() : Book{
+    return { ...this._book}
   }
 
-  public setBooks(books: Book[]){
-    this._books = books
+  public setBook(book: Book){
+    this._book = book
   }
 
-  public fetchBooks(bookData: string = "a", page: number = 0) : Observable<Book[]>{
-    let query = `${this._apiUrl}books/v1/volumes?q=${bookData}&startIndex=${page.toString()}&maxResults=20&key=${this._apiKey}`
-    return this.http.get<GoogleApiResponse>(
+  fetchBook(bookId: string = "") : Observable<Book>{
+    let query = `${this._apiUrl}books/v1/volumes/${bookId}`
+    return this.http.get<Book>(
       query,{}
     ).pipe(
       map(resp=>{
-      return resp.items;
+      return resp
     }));      
   }
 
