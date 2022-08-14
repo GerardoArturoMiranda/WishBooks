@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +18,7 @@ export class BookComponent implements OnInit {
   faInfo!: IconDefinition
   faStar!: IconDefinition
 
-  constructor(private router: Router, private modal: ModalService) {
+  constructor(private router: Router, private modal: ModalService, private activatedRoute: ActivatedRoute) {
     this.instantiateVariables()
   }
 
@@ -33,6 +33,8 @@ export class BookComponent implements OnInit {
   }
 
   addToWishList(){
+    const wishlist: Book[] = sessionStorage.getItem('YourWishlist') && JSON.parse(sessionStorage.getItem('YourWishlist')!)
+    wishlist.push(this.book)
     Swal.fire({
       icon: "success",
       title: '<div class="success-text">Added to your wishlist</div>',
@@ -43,10 +45,14 @@ export class BookComponent implements OnInit {
       reverseButtons: true,
       focusConfirm:false
     })
+    sessionStorage.setItem('YourWishlist', JSON.stringify(wishlist))
   }
 
   moreInfo(){
     this.modal.openModal()
-    this.router.navigateByUrl("/"+this.book.id)
+
+    this.activatedRoute.url.subscribe(() => {
+      this.router.navigateByUrl(this.router.url+'/'+this.book.id)
+    });
   }
 }

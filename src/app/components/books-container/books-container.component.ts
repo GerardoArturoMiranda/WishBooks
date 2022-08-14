@@ -17,6 +17,7 @@ export class BooksContainerComponent implements OnInit, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.router.url == '/' && this.fetchBooks(undefined, this.index) 
+    this.router.url == '/myWishlist' ? this.books = JSON.parse(sessionStorage.getItem('YourWishlist')!) : null
   }
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class BooksContainerComponent implements OnInit, AfterViewInit {
   } 
 
   private fetchBooks(stringToSearch: string = "a", pageNumber: number = 0){
-    console.log("Hola")
     setTimeout(()=>{
       this.landingPageService.fetchBooks(stringToSearch, pageNumber).subscribe()
     }, 2000)

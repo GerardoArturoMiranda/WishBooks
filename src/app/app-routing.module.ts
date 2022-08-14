@@ -4,7 +4,11 @@ import { LandingPageComponent } from './views/landing-page/landing-page.componen
 import { BookDetailComponent } from './views/book-detail/book-detail.component';
 import { MyWishlistComponent } from './views/my-wishlist/my-wishlist.component';
 const routes: Routes = [
-  {path: 'myWishlist', component: MyWishlistComponent},
+  {path: 'myWishlist', component: MyWishlistComponent ,
+    children: [
+      { path: ':id', component: BookDetailComponent},
+    ]
+  },
   { path: '', component: LandingPageComponent,
     children: [
       { path: ':id', component: BookDetailComponent},

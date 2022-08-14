@@ -19,6 +19,7 @@ export class BookDetailComponent implements OnInit {
   faGoogle! : IconDefinition
   faPlus!: IconDefinition;
   faStar!: IconDefinition
+  parentRoute: any;
   constructor(private activatedRoute: ActivatedRoute, private router: Router, protected bookDetailService: BookDetailService, private modal: ModalService) {
     this.instantiateVariables()
     this.activatedRoute.params.subscribe(async routeParams => {
@@ -28,6 +29,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.modal.openModal()
   }
 
   instantiateVariables(){
@@ -48,7 +50,9 @@ export class BookDetailComponent implements OnInit {
   
   back(){
     this.modal.closeModal()
-    this.router.navigateByUrl("")
+    this.activatedRoute.parent!.url.subscribe((data) => {
+      data[0]==null ? this.router.navigateByUrl("/") : this.router.navigateByUrl(data[0].toString())
+    });
   }
 
   manageNullBookValues(){
