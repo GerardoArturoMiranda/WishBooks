@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BooksContainerComponent } from './components/books-container/books-container.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BooksContainerComponent } from './components/books-container/books-cont
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]

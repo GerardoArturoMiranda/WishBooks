@@ -1,17 +1,17 @@
 <div class="row border-bottom">
     <div class="col-4 p-5">
-        <div class="boxBookShadow">
-            <img src="../../../assets/IMG_1747.PNG" class="bookImg">
+        <div class="box-book-shadow">
+            <img src="../../../assets/IMG_1747.PNG" class="book-img">
         </div>
     </div>
-    <div class="col-8 textAlignRight">
+    <div class="col-8 text-align-right">
         <p>Los Misterios del Náhuatl Contemporáneo</p>
         <p>Rating 2*</p>
         <p>Miguel Ruiz</p>
         <p>Salamanca</p>
         <div class="row">
             <div class="col-10">
-                <button type="button" class="btn btn-add-wishlist"><fa-icon [icon]="faPlus"></fa-icon>Wishlist</button>
+                <button type="button" class="btn btn-add-wishlist" (click)="addToWishList()"><fa-icon [icon]="faPlus"></fa-icon>Wishlist</button>
             </div>
             <div class="col-2">
                 <button type="button" class="btn btn-success"><fa-icon [icon]="faInfo"></fa-icon></button>

@@ -27,10 +27,10 @@ export class ModalService {
     * negation .- Method for making the querySelection of modal class to set it unactive or active.
     */
     if(state == 1){
-      document.querySelector('.modalRedirect')?.classList.add('active');
+      document.querySelector('.modal-redirect')?.classList.add('active');
       this._isOpen = true
     }else{
-      document.querySelector('.modalRedirect')?.classList.remove('active');
+      document.querySelector('.modal-redirect')?.classList.remove('active');
       this._isOpen = false
     }
   }
