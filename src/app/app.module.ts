@@ -13,6 +13,7 @@ import { BooksContainerComponent } from './components/books-container/books-cont
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailComponent } from './views/book-detail/book-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BookDetailComponent } from './views/book-detail/book-detail.component';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

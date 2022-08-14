@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { LandingPageService } from 'src/app/views/landing-page/landing-page.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +9,17 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   faSearch = faSearch
-  constructor() { }
+  wordToSearch: string = ""
+  constructor(protected landingPageService: LandingPageService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  searchBookTitle(){
+    this.landingPageService.setBookSearch(this.wordToSearch)
+  }
+
+  navigateTo(url: string){
+    this.router.navigateByUrl(url)
+  }
 }

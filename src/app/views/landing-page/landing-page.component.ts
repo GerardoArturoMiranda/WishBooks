@@ -14,11 +14,5 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  private instantiateVariables(){
- 
-  } 
-
-  loadBooks(){
-  }
 
 }

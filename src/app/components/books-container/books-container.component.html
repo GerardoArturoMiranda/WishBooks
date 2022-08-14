@@ -1,6 +1,6 @@
 <div class="position-sticky" style="top: 0;">
     <footer class="d-flex flex-wrap align-items-center my-4 border-top p-0 justify-content-center full-books-catalog-title">
-      <p class="first-half-title m-0">All</p><p class="second-half-title m-0">Titles</p>
+      <p *ngIf=" router.url == '/' " class="first-half-title m-0">All</p><p *ngIf=" router.url == '/myWishlist' " class="first-half-title m-0">Your</p><p class="second-half-title m-0">Titles</p>
     </footer>
 </div>
 <div class="container">
