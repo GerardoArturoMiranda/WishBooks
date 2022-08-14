@@ -1,15 +1,15 @@
 <div class="row border-bottom">
     <div class="col-4 p-5">
         <div class="box-book-shadow">
-            <img class="book-img">
+            <img class="book-img" src="{{book.volumeInfo.imageLinks.thumbnail}}">
         </div>
     </div>
     <div class="col-8 text-align-right">
         <p *ngIf="book.volumeInfo.title.length <= 30" title="{{book.volumeInfo.title}}">{{book.volumeInfo.title.substring(0, 30)}}</p>
         <p *ngIf="book.volumeInfo.title.length > 30" title="{{book.volumeInfo.title}}">{{book.volumeInfo.title.substring(0, 30)}}...</p>
-        <p>Rating 2*</p>
-        <p>Miguel Ruiz</p>
-        <p>Salamanca</p>
+        <fa-icon *ngFor="let star of [].constructor(book.volumeInfo.ratingsCount)" [icon]="faStar"></fa-icon>
+        <p>{{book.volumeInfo.authors.toString().substring(0, 12)}}</p>
+        <p *ngIf="book.volumeInfo.publisher">{{book.volumeInfo.publisher.substring(0,10)}}</p>
         <div class="row">
             <div class="col-10">
                 <button type="button" class="btn btn-add-wishlist" (click)="addToWishList()"><fa-icon [icon]="faPlus"></fa-icon>Wishlist</button>

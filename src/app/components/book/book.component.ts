@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faPlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Book } from 'src/app/models/Book';
 import Swal from 'sweetalert2';
 @Component({
@@ -12,20 +13,22 @@ export class BookComponent implements OnInit {
   @Input() book!: Book;
   faPlus!: IconDefinition 
   faInfo!: IconDefinition
+  faStar!: IconDefinition
 
   constructor() {
     this.instantiateVariables()
   }
 
   ngOnInit(): void {
-    console.info(this.book)
   }
 
   instantiateVariables(){
     this.book = new Book()
     this.faPlus = faPlus 
     this.faInfo =  faInfo
+    this.faStar = faStar
   }
+
   addToWishList(){
     Swal.fire({
       icon: "success",

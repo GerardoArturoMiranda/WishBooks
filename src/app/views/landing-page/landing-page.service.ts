@@ -32,14 +32,15 @@ export class LandingPageService {
     this._books = books
   }
 
-  public fetchBooks(bookData: string = "a") : Observable<Book[]>{
-    let query = `${this._apiUrl}books/v1/volumes?q=${bookData}&key=${this._apiKey}`
+  public fetchBooks(bookData: string = "a", page: number = 0) : Observable<Book[]>{
+    console.log(page)
+    let query = `${this._apiUrl}books/v1/volumes?q=${bookData}&startIndex=${page.toString()}&maxResults=20&key=${this._apiKey}`
     return this.http.get<GoogleApiResponse>(
       query,{}
     ).pipe(
       map(resp=>{
-        console.log(resp)
       return resp.items;
     }));      
   }
+
 }
