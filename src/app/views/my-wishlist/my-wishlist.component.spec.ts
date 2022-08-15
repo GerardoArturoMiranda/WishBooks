@@ -8,15 +8,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 
 describe('MyWishlistComponent', () => {
-   var $: any;
-
   let component: MyWishlistComponent;
   let fixture: ComponentFixture<MyWishlistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule, FontAwesomeModule, RouterModule ],
-      declarations: [ MyWishlistComponent, ModalComponent, HeaderComponent, BooksContainerComponent ]
+      declarations: [ MyWishlistComponent, ModalComponent, HeaderComponent, BooksContainerComponent]
     })
     .compileComponents();
 

@@ -12,7 +12,6 @@ import { RouterModule } from '@angular/router';
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
-  let  $ = null
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

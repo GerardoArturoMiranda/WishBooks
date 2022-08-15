@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faHeart, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-my-wishlist',
   templateUrl: './my-wishlist.component.html',

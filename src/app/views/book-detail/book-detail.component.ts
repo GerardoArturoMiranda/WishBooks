@@ -29,14 +29,14 @@ export class BookDetailComponent implements OnInit {
   
   constructor(private activatedRoute: ActivatedRoute, private modal: ModalService, protected router: Router, protected bookDetailService: BookDetailService){
     this.instantiateVariables()
-    this.activatedRoute.params.subscribe(async routeParams => {
-      this.book.id = routeParams['id']
-      this.fetchBook(this.book.id)
-    })
   }
 
   ngOnInit(): void {
     this.modal.openModal()
+    this.activatedRoute.params?.subscribe(async routeParams => {
+      this.book.id = routeParams['id']
+      this.fetchBook(this.book.id)
+    })
   }
 
   private instantiateVariables(){
