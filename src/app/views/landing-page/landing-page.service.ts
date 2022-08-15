@@ -9,9 +9,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
-import { environment } from 'src/environments/environment';
-import { GoogleApiResponse } from 'src/environments/responses'
+import { Book } from '../../models/Book'
+import { environment } from '../../../environments/environment'
+import { GoogleApiResponse } from  '../../../environments/responses'
 @Injectable({
   providedIn: 'root'
 })

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 // 3rd Application Developers Imports
 import { faLightbulb, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
+import { Book } from '../../models/Book'
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',

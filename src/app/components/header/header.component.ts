@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 // 3rd Application Developers Imports
 import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 // Personal Imports
-import { LandingPageService } from 'src/app/views/landing-page/landing-page.service';
+import { LandingPageService } from '../../views/landing-page/landing-page.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

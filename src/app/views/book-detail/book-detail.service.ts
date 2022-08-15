@@ -3,14 +3,14 @@
 * Standarization and Notation in Documentation
 */
 // Angular Imports
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // 3rd Application Developers Imports
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
+import { Book } from '../../models/Book'
 @Injectable({
   providedIn: 'root'
 })

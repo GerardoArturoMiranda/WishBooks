@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faPlus, faInfo, faStar, faTrash, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
+import { Book } from '../../models/Book'
 import { ModalService } from '../modal/modal.service';
 // Enable Jquery 
 declare var $: any;
@@ -50,7 +50,7 @@ export class BookComponent implements OnInit {
 
   // Functionality Methods 
 
-  protected addToWishList(){
+  addToWishList(){
     /*
     * addToWishList .- Method for adding a book from the landing page to a personal wishlist, it's saved by adding it 
     *                           in the sessionStorage, here we do the following actions:

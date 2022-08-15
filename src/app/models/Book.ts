@@ -6,7 +6,7 @@ class ImageLink {
       this.thumbnail = ""
     }
 }
-class VolumeInfo{
+export class VolumeInfo{
     title: string
     authors: string[]
     publisher: string

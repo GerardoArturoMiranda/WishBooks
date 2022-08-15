@@ -6,8 +6,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
-import { LandingPageService } from 'src/app/views/landing-page/landing-page.service';
+import { Book } from  '../../models/Book'
+import { LandingPageService } from '../../views/landing-page/landing-page.service'
 // Enable Jquery 
 declare var $: any;
 @Component({

@@ -10,9 +10,9 @@ import { faPlus, faStar, faWindowMinimize, IconDefinition } from '@fortawesome/f
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import Swal from 'sweetalert2';
 // Personal Imports
-import { Book } from 'src/app/models/Book';
-import { BookDetailService } from './book-detail.service';
-import { ModalService } from 'src/app/components/modal/modal.service';
+import { Book } from '../../models/Book'
+import { BookDetailService } from '../book-detail/book-detail.service'
+import { ModalService } from '../../components/modal/modal.service'
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
