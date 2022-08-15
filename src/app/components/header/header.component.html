@@ -4,7 +4,7 @@
       <a href="/" class="align-items-center col-md-4 d-flex justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
       </a>
       <ul class="col-md-4 justify-content-end nav">
-        <li class="align-self-center"><fa-icon class="wishBooks-color1" [icon]="faSearch"></fa-icon><input class="nav-item b-0" placeholder="Search..." [(ngModel)]="wordToSearch" (keyup)="searchBookTitle()"></li>
+        <li *ngIf="router.url == '/'" class="align-self-center"><fa-icon class="wishBooks-color1" [icon]="faSearch"></fa-icon><input class="nav-item b-0" placeholder="Search..." [(ngModel)]="wordToSearch" (keyup)="searchBookTitle()"></li>
         <li class="nav-item align-self-center" ><a href="myWishlist" class="nav-link px-2 text-muted">My Wishlist</a></li>
       </ul>
     </footer>

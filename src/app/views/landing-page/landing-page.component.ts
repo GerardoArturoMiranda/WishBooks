@@ -15,6 +15,7 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     const books: Book[] = []
     !sessionStorage.getItem('YourWishlist') && sessionStorage.setItem('YourWishlist', JSON.stringify(books))
+
   }
 
 }

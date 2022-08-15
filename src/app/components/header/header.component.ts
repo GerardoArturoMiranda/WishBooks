@@ -10,7 +10,7 @@ import { LandingPageService } from 'src/app/views/landing-page/landing-page.serv
 export class HeaderComponent implements OnInit {
   faSearch = faSearch
   wordToSearch: string = ""
-  constructor(protected landingPageService: LandingPageService, private router: Router) { }
+  constructor(protected landingPageService: LandingPageService, protected router: Router) { }
 
   ngOnInit(): void {
   }

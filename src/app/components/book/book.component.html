@@ -10,9 +10,17 @@
         <fa-icon *ngFor="let star of [].constructor(book.volumeInfo.ratingsCount)" [icon]="faStar"></fa-icon>
         <p>{{book.volumeInfo.authors.toString().substring(0, 12)}}</p>
         <p *ngIf="book.volumeInfo.publisher">{{book.volumeInfo.publisher.substring(0,10)}}</p>
-        <div class="row">
+        <div *ngIf="router.url == '/'"class="row">
             <div class="col-10">
                 <button type="button" class="btn btn-add-wishlist" (click)="addToWishList()"><fa-icon [icon]="faPlus"></fa-icon>Wishlist</button>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-success" (click)="moreInfo()"><fa-icon [icon]="faInfo"></fa-icon></button>
+            </div>
+        </div>
+        <div *ngIf="router.url == '/myWishlist' "class="row" class="row">
+            <div class="col-10">
+                <button type="button" class="btn btn-danger" (click)="removeFromWishList()"><fa-icon [icon]="faTrash"></fa-icon>Remove</button>
             </div>
             <div class="col-2">
                 <button type="button" class="btn btn-success" (click)="moreInfo()"><fa-icon [icon]="faInfo"></fa-icon></button>

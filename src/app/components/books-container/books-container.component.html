@@ -3,18 +3,28 @@
       <p *ngIf=" router.url == '/' " class="first-half-title m-0">All</p><p *ngIf=" router.url == '/myWishlist' " class="first-half-title m-0">Your</p><p class="second-half-title m-0">Titles</p>
     </footer>
 </div>
-<div class="container">
+<div class="container" *ngIf="books">
     <div class="row">
         <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 justify-content-center text-align-center p-5" *ngFor="let book of books">
            <app-book [book]="book"></app-book>
         </div>
     </div>
 </div>
-<nav aria-label="text-align-center w-100">
+<div class="container" *ngIf="books.length == 0">
+    <div class="row">
+        <ul class="pagination justify-content-center">
+            <button class="btn btn-add-wishlist" type="button">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Looking for Data...
+              </button>
+        </ul>
+    </div>
+</div>
+<nav *ngIf=" router.url == '/' && books.length > 0" aria-label="text-align-center w-100">
     <ul class="pagination justify-content-center">
         <button class="btn btn-add-wishlist" type="button" id="loadMore" (click)="nextPage()">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Loading...
+            Loading more Books...
           </button>
     </ul>
   </nav>

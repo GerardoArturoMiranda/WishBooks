@@ -17,7 +17,6 @@ export class BooksContainerComponent implements OnInit, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.router.url == '/' && this.fetchBooks(undefined, this.index) 
-    this.router.url == '/myWishlist' ? this.books = JSON.parse(sessionStorage.getItem('YourWishlist')!) : null
   }
 
   ngOnInit(): void {
@@ -34,6 +33,7 @@ export class BooksContainerComponent implements OnInit, AfterViewInit {
 
   private instantiateVariables(){
     this.books = []
+    this.router.url == '/myWishlist' && sessionStorage.getItem('YourWishlist') ? this.books = JSON.parse(sessionStorage.getItem('YourWishlist')!) : null
     this.index = 0
   } 
 
