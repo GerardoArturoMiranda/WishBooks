@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/models/Book';
 import { LandingPageService } from 'src/app/views/landing-page/landing-page.service';
 
