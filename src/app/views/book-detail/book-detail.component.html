@@ -1,31 +1,31 @@
 <div class="container width-side-detail" >
-    <div class="text-align-center back-button-box">
-        <button type="button"  (click)="back()" class="btn btn-back p-0 w-100 h-100">
+    <div class="back-button-box text-align-center">
+        <button (click)="back()" class="btn btn-back h-100 p-0 w-100 "  type="button" >
             <p class="m-0"><fa-icon class="w-100" [icon]="faWindowMinimize"></fa-icon>Minimize</p>
         </button>
     </div>
-    <h1 class="vw-50 title-detail">{{book.volumeInfo.title}}</h1><fa-icon *ngFor="let i of counter(book.volumeInfo.averageRating)" [icon]="faStar"></fa-icon>
+    <h1 class="title-detail vw-50">{{book.volumeInfo.title}}</h1><fa-icon *ngFor="let i of counter(book.volumeInfo.averageRating)" [icon]="faStar"></fa-icon>
     <div class="row">
         <div class="col-4">
             <img class="book-img-detail" src="{{book.volumeInfo.imageLinks.thumbnail}}">
         </div>
         <div class="col-8">
-            <p class="white-text p-5">{{book.volumeInfo.description}}</p>
+            <p class="p-5 white-text">{{book.volumeInfo.description}}</p>
             <p class="white-text">Author(s): {{book.volumeInfo.authors.toString()}}</p>
             <p class="white-text">Pages Count: {{book.volumeInfo.pageCount}}</p>
             <p class="white-text">Rating: {{book.volumeInfo.averageRating}} Star(s)</p>
             <p class="white-text">Publisher: {{book.volumeInfo.publisher}}</p>
         </div>
     </div>
-    <div class="row pt-1 add-wl">
+    <div class="add-wl pt-1 row">
         <div *ngIf="!router.routerState.snapshot.url.includes('myWishlist')" class="col-12">
-          <button type="button"  (click)="addToWishList()" class="btn btn-back p-0 w-100 h-100">
-            <p class="p-2 m-0"><fa-icon class="w-100" [icon]="faPlus"></fa-icon>Add to my Wishlist</p>
+          <button  (click)="addToWishList()" class="btn btn-back h-100 p-0 w-100" type="button">
+            <p class="m-0 p-2"><fa-icon class="w-100" [icon]="faPlus"></fa-icon>Add to my Wishlist</p>
           </button>
         </div>
         <div class="col-12">
-          <button type="button"  (click)="openWindow()" class="btn btn-back p-0 w-100 h-100">
-              <p class="p-2 m-0"><fa-icon class="w-100" [icon]="faGoogle"></fa-icon>oogle - Buy it Now!</p>
+          <button (click)="openWindow()" class="btn btn-back h-100 p-0 w-100" type="button">
+              <p class="m-0 p-2"><fa-icon class="w-100" [icon]="faGoogle"></fa-icon>oogle - Buy it Now!</p>
           </button>
         </div>
     </div>

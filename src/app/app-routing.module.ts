@@ -14,7 +14,6 @@ const routes: Routes = [
       { path: ':id', component: BookDetailComponent},
     ]
   },
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

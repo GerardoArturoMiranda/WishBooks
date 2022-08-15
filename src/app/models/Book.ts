@@ -38,7 +38,6 @@ class VolumeInfo{
         this.canonicalVolumeLink= ""
       }
 }
-
 export class Book{
   kind: string
   id: string

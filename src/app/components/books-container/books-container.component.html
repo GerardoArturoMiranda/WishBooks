@@ -1,18 +1,18 @@
 <div class="position-sticky" style="top: 0;">
-    <footer class="d-flex flex-wrap align-items-center my-4 border-top p-0 justify-content-center full-books-catalog-title">
-      <p *ngIf=" router.url == '/' " class="first-half-title m-0">All</p><p *ngIf=" router.url == '/myWishlist' " class="first-half-title m-0">Your</p><p class="second-half-title m-0">Titles</p>
+    <footer class="align-items-center border-top d-flex flex-wrap full-books-catalog-title justify-content-center my-4 p-0 ">
+      <p *ngIf=" router.url == '/' " class="first-half-title m-0">All</p><p *ngIf=" router.url == '/myWishlist' " class="first-half-title m-0">Your</p><p class="m-0 second-half-title">Titles</p>
     </footer>
 </div>
-<div class="container" *ngIf="books">
+<div *ngIf="books" class="container">
     <div class="row">
-        <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 justify-content-center text-align-center p-5" *ngFor="let book of books">
+        <div class="col-12 col-lg-6 col-xl-6 col-xxl-4 justify-content-center p-5 text-align-center" *ngFor="let book of books">
            <app-book [book]="book"></app-book>
         </div>
     </div>
 </div>
-<div class="container" *ngIf="books.length == 0">
+<div *ngIf="books.length == 0" class="container">
     <div class="row">
-        <ul class="pagination justify-content-center">
+        <ul class="justify-content-center pagination">
             <button class="btn btn-add-wishlist" type="button">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Looking for Data...
@@ -21,7 +21,7 @@
     </div>
 </div>
 <nav *ngIf=" router.url == '/' && books.length > 0" aria-label="text-align-center w-100">
-    <ul class="pagination justify-content-center">
+    <ul class="justify-content-center pagination">
         <button class="btn btn-add-wishlist" type="button" id="loadMore" (click)="nextPage()">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Loading more Books...

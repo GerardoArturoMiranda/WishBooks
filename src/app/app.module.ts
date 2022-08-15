@@ -8,7 +8,6 @@ import { LandingPageComponent } from './views/landing-page/landing-page.componen
 import { MyWishlistComponent } from './views/my-wishlist/my-wishlist.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { BooksContainerComponent } from './components/books-container/books-container.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +22,6 @@ import { FormsModule } from '@angular/forms';
     MyWishlistComponent,
     HeaderComponent,
     BookComponent,
-    FooterComponent,
     BooksContainerComponent,
     BookDetailComponent
   ],

@@ -1,11 +1,11 @@
 <div class="container">
     <footer class="align-items-center border-bottom d-flex flex-wrap justify-content-between my-4 p-0">
-      <p href="" class="first-half-title m-0 wishBooks-color1 cursor-arrow" (click)="navigateTo('/')">Wish</p><p class="cursor-arrow m-0 second-half-title wishBooks-color1">Books</p>
-      <a href="/" class="align-items-center col-md-4 d-flex justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <p (click)="navigateTo('/')" class="cursor-arrow first-half-title m-0 wishBooks-color1"  href="">Wish</p><p class="cursor-arrow m-0 second-half-title wishBooks-color1">Books</p>
+      <a class="align-items-center col-md-4 d-flex justify-content-center link-dark mb-3 mb-md-0 me-md-auto  text-decoration-none" href="/">
       </a>
       <ul class="col-md-4 justify-content-end nav">
-        <li *ngIf="router.url == '/'" class="align-self-center"><fa-icon class="wishBooks-color1" [icon]="faSearch"></fa-icon><input class="nav-item b-0" placeholder="Search..." [(ngModel)]="wordToSearch" (keyup)="searchBookTitle()"></li>
-        <li class="nav-item align-self-center" ><a href="myWishlist" class="nav-link px-2 text-muted">My Wishlist</a></li>
+        <li *ngIf="router.url == '/'" class="align-self-center"><fa-icon class="wishBooks-color1" [icon]="faSearch"></fa-icon><input [(ngModel)]="wordToSearch" (keyup)="searchBookTitle()" class="nav-item b-0" placeholder="Search..."></li>
+        <li class="align-self-center nav-item" ><a class="nav-link px-2 text-muted" href="myWishlist">My Wishlist</a></li>
       </ul>
     </footer>
 </div>
