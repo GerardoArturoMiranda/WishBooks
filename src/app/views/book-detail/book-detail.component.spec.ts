@@ -28,7 +28,7 @@ describe('BookDetailComponent', () => {
               },
           },
       }      ],
-      imports: [ HttpClientTestingModule],
+      imports: [ HttpClientTestingModule, FontAwesomeModule],
       declarations: [ BookDetailComponent ]
     })
     .compileComponents();
