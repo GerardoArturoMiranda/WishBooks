@@ -22,7 +22,7 @@
 </div>
 <nav *ngIf=" router.url == '/' && books.length > 0" aria-label="text-align-center w-100">
     <ul class="justify-content-center pagination">
-        <button class="btn btn-add-wishlist" type="button" id="loadMore" (click)="nextPage()">
+        <button class="btn btn-add-wishlist" type="button" id="loadMore" (click)="loadMore()">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Loading more Books...
           </button>

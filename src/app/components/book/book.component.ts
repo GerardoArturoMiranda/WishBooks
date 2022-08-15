@@ -13,7 +13,6 @@ import { Book } from 'src/app/models/Book';
 import { ModalService } from '../modal/modal.service';
 // Enable Jquery 
 declare var $: any;
-
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
