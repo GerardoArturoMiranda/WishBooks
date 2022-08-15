@@ -1,18 +1,22 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable, Renderer2, RendererFactory2, ViewChild } from '@angular/core';
+// Enable Jquery 
+declare var $: any;
 @Injectable({
   providedIn: 'root'
 })
+
 export class ModalService {
   // Variable for modifying the modal router outlet status
   private _isOpen!: boolean;
-  constructor() { }
+  constructor() {
+  } 
 
   openModal(): void {
     /* 
     * openSidebar .- Opens the router Modal
     */
     !this._isOpen && this.negation(1)
+    $("body").css( "overflow", "hidden" );
   }
 
   closeModal(): void {
@@ -20,6 +24,7 @@ export class ModalService {
     * closeSidebar .- Closes the router Modal
     */
     this._isOpen && this.negation(0)
+    $("body").css( "overflow", "scroll" );
   }
 
   negation(state: number){
