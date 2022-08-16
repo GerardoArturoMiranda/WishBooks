@@ -99,7 +99,7 @@ export class BookComponent implements OnInit {
     });
   }
 
-  protected removeFromWishList(){
+  removeFromWishList(){
     /*
     * removeFromWishList .- Method for removing a book from myWishlist, it's saved the new array in the sessionStorage, here we do the following actions:
     *                               •Verify if there's an existing register with the same id 

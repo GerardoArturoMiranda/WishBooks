@@ -5,7 +5,7 @@ import { ModalService } from '../modal/modal.service';
 import { BookComponent } from './book.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
+import { empty, of } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('BookComponent', () => {
@@ -28,7 +28,8 @@ describe('BookComponent', () => {
           },
       },
         {provide: ModalService},
-        {provide: RouterTestingModule}      ],
+        {provide: RouterTestingModule}
+      ],
       imports: [ HttpClientTestingModule, FontAwesomeModule ],
       declarations: [ BookComponent]
     })
@@ -43,15 +44,91 @@ describe('BookComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // test('should add to wishlist', ()=>{
-  //   const testBook =  new Book()
-  //   testBook.etag = "Test"
-  //   testBook.id = "a1"
-  //   testBook.kind = ""
-  //   testBook.selfLink = ""
-  //   testBook.volumeInfo =  new VolumeInfo()
-  //   component.book = testBook
-  //   component.addToWishList()
-  //   expect(JSON.parse(sessionStorage.getItem('YourWishlist')!).toBe(testBook))
-  // })
+  test('should add a book to a not empty wishlist', ()=>{
+    //Initialization
+    // Declaring first Book for Wishlist
+    const testBook =  new Book()
+    testBook.etag = "Test1"
+    testBook.id = "a1"
+    // Declaring an empty array for appending it to SessionStorage and the expected Array
+    let emptyWishlist: Book[] = []
+    emptyWishlist.push(testBook)
+    sessionStorage.setItem('YourWishlist', JSON.stringify(emptyWishlist))
+    let expectedArray : Book[] = []
+    expectedArray.push(testBook)
+    // Stimulus
+    const testBook2 =  new Book()
+    testBook2.etag = "Test1"
+    testBook2.id = "a1"
+    // Applying Stimulus
+    component.book = testBook2
+    component.addToWishList()
+    // Expected Behavior
+    expectedArray = JSON.parse(sessionStorage.getItem('YourWishlist')!)
+    expect(expectedArray.toString()).toBe(emptyWishlist.toString())
+  })
+
+  test('should not add a book to an empty wishlist', ()=>{
+    //Initialization
+    // Declaring an empty array for appending it to SessionStorage and the expected Array
+    let emptyWishlist: Book[] = []
+    sessionStorage.setItem('YourWishlist', JSON.stringify(emptyWishlist))
+    let expectedArray : Book[]
+    // Stimulus
+    const testBook =  new Book()
+    testBook.etag = "Test1"
+    testBook.id = "a1"
+    // Applying Stimulus to Component
+    component.book = testBook
+    component.addToWishList()
+    emptyWishlist.push(testBook)
+    // Expected Behavior
+    expectedArray = JSON.parse(sessionStorage.getItem('YourWishlist')!)
+    expect(expectedArray.toString()).toBe(emptyWishlist.toString())
+  })
+
+  test('should add a book to a not empty wishlist', ()=>{
+    //Initialization
+    // Declaring first Book for Wishlist
+    const testBook =  new Book()
+    testBook.etag = "Test1"
+    testBook.id = "a1"
+    // Declaring an empty array for appending it to SessionStorage and the expected Array
+    let emptyWishlist: Book[] = []
+    emptyWishlist.push(testBook)
+    sessionStorage.setItem('YourWishlist', JSON.stringify(emptyWishlist))
+    let expectedArray : Book[] = []
+    expectedArray.push(testBook)
+    // Stimulus
+    const testBook2 =  new Book()
+    testBook2.etag = "Test2"
+    testBook2.id = "a2"
+    // Applying Stimulus
+    component.book = testBook2
+    component.addToWishList()
+    emptyWishlist.push(testBook)
+    // Expected Behavior
+    expectedArray = JSON.parse(sessionStorage.getItem('YourWishlist')!)
+    expect(expectedArray.toString()).toBe(emptyWishlist.toString())
+  })
+
+  test('should remove a book from a wishlist', ()=>{
+    //Initialization
+    // Declaring first Book for Wishlist
+    const testBook =  new Book()
+    testBook.etag = "Test1"
+    testBook.id = "a1"
+    // Declaring an empty array for appending it to SessionStorage and the expected Array
+    let notEmptyWishlist: Book[] = []
+    notEmptyWishlist.push(testBook)
+    sessionStorage.setItem('YourWishlist', JSON.stringify(notEmptyWishlist))
+    let expectedArray : Book[] = []
+    expectedArray.push(testBook)
+    // Applying Stimulus
+    component.removeFromWishList()
+    notEmptyWishlist.pop()
+    // Expected Behavior
+    expectedArray = JSON.parse(sessionStorage.getItem('YourWishlist')!)
+    expect(expectedArray.toString()).toBe(notEmptyWishlist.toString())
+  })
 });
