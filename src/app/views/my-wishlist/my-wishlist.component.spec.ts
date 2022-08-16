@@ -1,11 +1,18 @@
+/*
+* Arturo Miranda, August 13th, 2022
+* Standarization and Notation in Documentation
+*/
+// Angular Imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { RouterModule } from '@angular/router';
+// 3rd Application Developers Imports
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Personal Imports
 import { BooksContainerComponent } from '../../components/books-container/books-container.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { ModalComponent } from '../../components/modal/modal.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { MyWishlistComponent } from './my-wishlist.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
 
 describe('MyWishlistComponent', () => {
   let component: MyWishlistComponent;

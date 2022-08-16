@@ -1,12 +1,18 @@
+/*
+* Arturo Miranda, August 13th, 2022
+* Standarization and Notation in Documentation
+*/
+// Angular Imports
+import { ActivatedRoute } from '@angular/router';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, convertToParamMap, Router } from '@angular/router';
-import { Book, VolumeInfo } from '../../../app/models/Book';
-import { ModalService } from '../modal/modal.service';
-import { BookComponent } from './book.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { RouterTestingModule } from '@angular/router/testing';
-import { empty, of } from 'rxjs';
+// 3rd Application Developers Imports
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// Personal Imports
+import { Book } from '../../../app/models/Book';
+import { BookComponent } from './book.component';
+import { ModalService } from '../modal/modal.service';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -17,24 +23,23 @@ describe('BookComponent', () => {
       providers: [
         {
           provide: ActivatedRoute,
-          useValue: {
-              snapshot: {
-                  paramMap: {
-                      get(): string {
-                          return '123';
-                      },
-                  },
-              },
-          },
-      },
+            useValue: {
+                snapshot: {
+                    paramMap: {
+                        get(): string {
+                            return '12345678';
+                        },
+                    },
+                },
+            },
+        },
         {provide: ModalService},
         {provide: RouterTestingModule}
       ],
       imports: [ HttpClientTestingModule, FontAwesomeModule ],
-      declarations: [ BookComponent]
+      declarations: [BookComponent]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -45,6 +50,10 @@ describe('BookComponent', () => {
   });
 
   test('should add a book to a not empty wishlist', ()=>{
+  /*
+  * should add a book to a not empty wishlist [TEST] .- Test for verifying if the addToWishlistMethod works, it should add 
+  *                                                                             a book to the user's wishlist
+  */
     //Initialization
     // Declaring first Book for Wishlist
     const testBook =  new Book()
@@ -69,6 +78,10 @@ describe('BookComponent', () => {
   })
 
   test('should not add a book to an empty wishlist', ()=>{
+  /*
+  * should not add a book to an empty wishlist [TEST] .- Test for verifying if the addToWishlistMethod works, it should not add 
+  *                                                                             a book to the user's wishlist
+  */
     //Initialization
     // Declaring an empty array for appending it to SessionStorage and the expected Array
     let emptyWishlist: Book[] = []
@@ -88,6 +101,10 @@ describe('BookComponent', () => {
   })
 
   test('should add a book to a not empty wishlist', ()=>{
+  /*
+  * should add a book to a not empty wishlist [TEST] .- Test for verifying if the addToWishlistMethod works, it should add 
+  *                                                                             a book to the user's wishlist
+  */
     //Initialization
     // Declaring first Book for Wishlist
     const testBook =  new Book()
@@ -112,7 +129,11 @@ describe('BookComponent', () => {
     expect(expectedArray.toString()).toBe(emptyWishlist.toString())
   })
 
-  test('should remove a book from a wishlist', ()=>{
+  test('should remove a book from a wishlist', ()=>{  
+  /*
+  * should remove a book from a wishlist [TEST] .- Test for verifying if the addToWishlist Method works, it should remove
+  *                                                                       a book from the user's wishlist
+  */
     //Initialization
     // Declaring first Book for Wishlist
     const testBook =  new Book()

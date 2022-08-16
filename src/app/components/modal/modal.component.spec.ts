@@ -1,6 +1,11 @@
+/*
+* Arturo Miranda, August 13th, 2022
+* Standarization and Notation in Documentation
+*/
+// Angular Imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterOutlet } from '@angular/router';
-
+// Personal Imports
 import { ModalComponent } from './modal.component';
 
 describe('ModalComponent', () => {
@@ -12,7 +17,6 @@ describe('ModalComponent', () => {
       declarations: [ ModalComponent, RouterOutlet ]
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(ModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,8 +1,15 @@
+/*
+* Arturo Miranda, August 13th, 2022
+* Standarization and Notation in Documentation
+*/
+// Angular Imports
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
-import { LandingPageService } from './landing-page.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { TestBed } from '@angular/core/testing';
+// Personal Imports
 import { Book } from '../../models/Book'
+import { LandingPageService } from './landing-page.service';
+
 
 describe('LandingPageService', () => {
   let service: LandingPageService;
@@ -24,6 +31,11 @@ describe('LandingPageService', () => {
   });
 
   it('should filter books into a valid book array', () => {
+  /*
+  * should filter books into a valid book array [TEST] .- Test for verifying if the filterOnlyValidBooks works, it should filter the first 2 books
+  */
+    //Initialization
+    // Declaring Books
     const book1 : Book = new Book()
     book1.etag = "OI6TXnR4wOY"
     book1.id = "sfZznQEACAAJ"
@@ -55,14 +67,21 @@ describe('LandingPageService', () => {
     }
     let apiResponseBooks :Book[] = [book1, book2, book3]
     const expectedBooks :Book[] = [book3]
+    // Stimulus
     service.filterOnlyValidBooks(apiResponseBooks)
     service.getBooks().subscribe((books) => {
       apiResponseBooks = books;
+      // Expected Behavior
       expect(apiResponseBooks.toString()).toBe(expectedBooks.toString());
     })
   });
 
   it('should filter first book into final array', () => {
+  /*
+  * should filter first book into final array [TEST] .- Test for verifying if the filterOnlyValidBooks works, it should filter the first book
+  */
+    //Initialization
+    // Declaring Books
     const book1 : Book = new Book()
     book1.etag = "OI6TXnR4wOY"
     book1.id = "sfZznQEACAAJ"
@@ -98,14 +117,20 @@ describe('LandingPageService', () => {
     }
     let apiResponseBooks :Book[] = [book1, book2, book3]
     const expectedBooks :Book[] = [book1, book2, book3]
+    // Stimulus
     service.filterOnlyValidBooks(apiResponseBooks)
     service.getBooks().subscribe((books) => {
       apiResponseBooks = books;
+      // Expected Behavior
       expect(apiResponseBooks.toString()).toBe(expectedBooks.toString());
     })
   });
 
   it('should not filter books into final array', () => {
+  /*
+  * should not filter books into final array [TEST] .- Test for verifying if the filterOnlyValidBooks works, it should filter out all books
+  */
+    //Initialization
     const book1 : Book = new Book()
     book1.etag = "OI6TXnR4wOY"
     book1.id = "sfZznQEACAAJ"
@@ -137,9 +162,11 @@ describe('LandingPageService', () => {
     }
     let apiResponseBooks :Book[] = [book1, book2, book3]
     const expectedBooks :Book[] = [book2, book3]
+    // Stimulus
     service.filterOnlyValidBooks(apiResponseBooks)
     service.getBooks().subscribe((books) => {
       apiResponseBooks = books;
+      // Expected Behavior
       expect(apiResponseBooks.toString()).toBe(expectedBooks.toString());
     })
   });

@@ -1,13 +1,17 @@
+/*
+* Arturo Miranda, August 13th, 2022
+* Standarization and Notation in Documentation
+*/
+// Angular Imports
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { LandingPageService } from '../../views/landing-page/landing-page.service';
-import { BookComponent } from '../book/book.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing'
-
-import { BooksContainerComponent } from './books-container.component';
 import { RouterTestingModule } from '@angular/router/testing';
+// 3rd Application Developers Imports
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-declare var $: any;
+// Personal Imports
+import { BookComponent } from '../book/book.component';
+import { BooksContainerComponent } from './books-container.component';
+import { LandingPageService } from '../../views/landing-page/landing-page.service';
 
 describe('BooksContainerComponent', () => {
   let component: BooksContainerComponent;

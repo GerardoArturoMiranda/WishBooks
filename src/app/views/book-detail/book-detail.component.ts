@@ -53,7 +53,7 @@ export class BookDetailComponent implements OnInit {
     this.faWindowMinimize = faWindowMinimize
   }
   
-  protected addToWishList(){
+   addToWishList(){
     /*
     * addToWishList .- Method for adding a book from the landing page to a personal wishlist, it's saved by adding it 
     *                           in the sessionStorage, here we do the following actions:
